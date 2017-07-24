@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>component柱状图组件</title>
+    <!-- 基本资源库 -->
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery.fullPage.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <!-- H5对象资源&管理内容：页-组件 -->
+    <script src="../js/H5componentBase.js"></script>  
+    <link rel="stylesheet" href="../css/H5componentBase.css"> 
+
+    <script src="../js/H5componentRadar.js"></script>  
+    <link rel="stylesheet" href="../css/H5componentRadar.css"> 
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-size: 12px;
+    }
+
+    .iphone{
+        width: 340px;
+        height: 540px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -270px 0 0 -170px;
+    }
+    .h5_component_base{
+        transition: all 1s;
+    }
+</style> 
+<body>
+    <div class="iphone">
+        
+    </div>
+    <script>
+        var cfg = {
+            type:"radar",
+            data:[
+                ['js','.4','#0f0'],
+                ['html','.19'],
+                ['C++','.1'],
+                ['html5','.2'],
+                ['jquery','.5'],
+            ],
+            width:400,
+            height:400,
+            css:{
+               opacity:0
+            },
+            animateIn:{ bottom:'20%',opacity:1 },
+            animateOut:{ bottom:0, opacity:0 },
+            center:true
+        }
+
+        var h5 = new H5componentRadar("myBarComponent",cfg);
+
+        $(".iphone").append(h5);
+
+        var leave = true;
+        $('body').click(function(){
+            leave = !leave;
+            $('.h5_component').trigger( leave? 'onLeave':'onLoad');
+        })
+    </script>
+</body>
+</html>

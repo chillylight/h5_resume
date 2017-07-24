@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>component组件</title>
+    <!-- 基本资源库 -->
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery.fullPage.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <!-- H5对象资源&管理内容：页-组件 -->
+    <link rel="stylesheet" href="../css/H5.css">
+    <script src="../js/H5.js"></script>
+
+    <script src="../js/H5componentBase.js"></script>  
+    <link rel="stylesheet" href="../css/H5componentBase.css"> 
+    <style>
+        body{ margin: 0; padding: 0; }
+    </style> 
+</head>
+
+<body>
+    <script>
+        $(function(){
+            var h5 = new H5();
+            h5
+            .addPage('face')
+                .addComponent('logo',{
+                    text:'logo',
+                    width:400,
+                    height:100,
+                    css:{ backgroundColor:'red',top:200,opacity:0},
+                    center:true,
+                    animateIn:{ opacity:1 },
+                    animateOut:{ opacity:0 }
+                })
+                .addComponent('slogan',{
+                    text:'slogan',
+                    width:400,
+                    height:100,
+                    css:{ backgroundColor:'red',top:350,opacity:0},
+                    center:true,
+                    animateIn:{ opacity:1 },
+                    animateOut:{ opacity:0 }
+                })
+            .addPage('desc')
+                .addComponent('caption',{
+                    text:'核心理念',
+                    width:400,
+                    height:100,
+                    css:{ backgroundColor:'red',top:200,opacity:0},
+                    center:true,
+                    animateIn:{ opacity:1 },
+                    animateOut:{ opacity:0 }
+                })
+            .addPage('page-3')
+                .addComponent('caption',{text:'课程方向分布'})
+            .loader();
+        })
+    </script>
+</body>
+</html>
